@@ -19,8 +19,17 @@ copy it to the next Rails project (if you must - not recommended)
 Why bother ?
 
 * to be DRY
-* to make those little hacks easily develops during a project, then easily extractable from it for wider use
+
+* to make those little hacks easy to develop during a project, then easily extractable from it for wider use
+
 * to share with others
+
+Advanced
+
+* Tweaks can be moved to another rails app by copying or moving the *_tweak.rb files to a tweaks folder, then adding 
+the config to tweaks_config.rb
+
+* Multiple tweaks could be stored in your own gem, and then loaded by a rails/init.rb file like the one in this gem
 
 == FEATURES/PROBLEMS:
 
@@ -32,7 +41,14 @@ Why bother ?
 
 == INSTALL:
 
- sudo gem install tweaks
+> gem install tweaks
+> cd <RAILS_ROOT>
+> script/generate tweak blah
+
+Now
+
+- Define your tweak in the new file tweaks/blah_tweak.rb, with default values
+- Configure it in config/initializers/tweaks_config.rb for your app
 
 == LICENSE:
 
