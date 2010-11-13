@@ -67,12 +67,17 @@
 		</Folder>
 	</CustomFolders>
 	<Files AutoFolders="DirectoryView">
+		<Folder Name="rails_generators">
+			<F
+				N="rails_generators/*"
+				Recurse="1"
+				Refilter="0"
+				Excludes=""/>
+		</Folder>
 		<F
 			N="*.rb"
 			Recurse="1"
 			Refilter="0"
 			Excludes=".git"/>
-		<F N="Rakefile"/>
-		<F N="README.rdoc"/>
 	</Files>
 </Project>

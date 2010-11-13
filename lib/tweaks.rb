@@ -44,7 +44,7 @@ class Tweaks
 
 	# pass a hash to set
 	# returns config hash for modification
-	def self.config_for(aTweak,aHash=nil)
+	def self.configure_tweak(aTweak,aHash=nil)
 		aTweak = aTweak.to_sym
 		if !(cf = @@configs[aTweak])
 			cf = {}
@@ -64,7 +64,7 @@ class Tweaks
 	# called by tweak code (not sure if necessary)
 	# aDefaults creates an optional config object for this tweak with the given defaults and previously given values
 	# aNormally :enabled or :disabled
-	def self.define(aName,aNormally,aDefaults=nil)
+	def self.define_tweak(aName,aNormally,aDefaults=nil)
 		config = @@configs[aName.to_sym]
 		@@configs[aName.to_sym] = config = ConfigClass.new(aDefaults,config) if aDefaults
 		@@switch_default[aName.to_sym] = (aNormally==:enabled || aNormally==true ? true : false)
