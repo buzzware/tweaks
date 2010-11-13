@@ -1,0 +1,61 @@
+= tweaks
+
+* Author : http://www.buzzware.com.au
+
+== DESCRIPTION:
+
+Tweaks are like tiny gems. In a single file you declare its name, whether 
+it is normally enabled or disabled, and implement it. Then you provide the configuration
+for all enabled tweaks in a file eg. in the Rails initializers folder.
+
+What Tweaks does for you
+
+Tweaks provides a minimal framework for implementing, configuring and distributing those 
+little pieces of code you develop and collect through developing multiple rails projects.
+A tweak can be developed in the context of a Rails project with minimal friction. When the 
+project is delivered (and the pressure is off) you can move the tweak into its own gem or 
+copy it to the next Rails project (if you must - not recommended)
+
+Why bother ?
+
+* to be DRY
+* to make those little hacks easily develops during a project, then easily extractable from it for wider use
+* to share with others
+
+== FEATURES/PROBLEMS:
+
+* untested with Rails 3
+
+== REQUIREMENTS:
+
+* tested on MacOS and Linux
+
+== INSTALL:
+
+ sudo gem install tweaks
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2010 (at Rails Camp Perth, Australia) by Gary McGhee, Buzzware Solutions
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+

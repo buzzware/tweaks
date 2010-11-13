@@ -1,0 +1,65 @@
+[Global]
+CurrentProject=tweaks.vpj
+[ProjectDates]
+tweaks.vpj=20101113091351000
+[ActiveConfig]
+tweaks.vpj=Release
+[TreeExpansion2]
+- tweaks.vpj
+  - lib
+    + buzzcore
+      - lib/buzzcore/tweaks.rb
+    - lib/buzzcore.rb
+    - lib/buzzcore_dev.rb
+  + rails
+    - rails/init.rb
+  + test
+    - test/test_helper.rb
+  - .DS_Store
+  - buzzcore.vpwhistu
+  - buzzcore.vtg
+  - Rakefile
+  - README.rdoc
+  - tweaks.vpj
+  - tweaks.vpw
+  - tweaks.vpwhistu
+scroll:0
+[State]
+SCREEN: 1680 1028 0 0 1680 943 0 0 N 0 0 0 0 1185 473 0
+CWD: 
+FILEHIST: 9
+../iarts/cms/source/README
+../iarts/cms/source/test/integration/artist_cms_int_test.rb
+../iarts/cms/source/test/integration/image_upload_test.rb
+../iarts/cms/source/test/integration/product_cms_int_test.rb
+../iarts/cms/source/config/initializers/tweaks_config.rb
+../iarts/cms/source/tweaks/page_filter_tweak.rb
+../buzzcore/lib/buzzcore/tweaks.rb
+buzzcore.vpw
+buzzcore.vpj
+BOOKMARK2: 2
+Cms::ArtistsControllerTest:3211321617/Users/gary/repos/iarts/cms/source/test/functional/cms/artists_controller_test.rb
+01162174/Users/gary/repos/iarts/cms/source/test/osc_import/import_test.rb
+BOOKMARK3: 2
+Cms::ArtistsControllerTest:3211321617/Users/gary/repos/iarts/cms/source/test/functional/cms/artists_controller_test.rb55
+def test_new
+get : new
+assert_response : success
+assert_select " title " , " Content Library / Add New Artist "
+end
+def test_create
+artist_hash = {
+" artist " = > {
+' description ' = > ' A real artista ' ,
+' first_name ' = > ' Arty ' ,
+01162174/Users/gary/repos/iarts/cms/source/test/osc_import/import_test.rb44
+class ImportTest < ActiveSupport : : TestCase
+test " convert products " do
+end
+end
+911926233		aChain . each do |name| / Users / gary / repos / bcms_tools / lib / bcms_tools / category_utils . rb55
+aChain , # an array of names from leaf to root
+aCatType		# an object or id of CategoryRoot
+)
+PROJECT_CACHE: 0
+TBCLASS: 0 0
