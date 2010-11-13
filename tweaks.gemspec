@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tweaks}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["buzzware"]
@@ -18,13 +18,30 @@ little pieces of code you develop and collect through developing multiple rails 
      "README.rdoc"
   ]
   s.files = [
-    "lib/tweaks.rb"
+    ".DS_Store",
+     "LICENSE",
+     "README.rdoc",
+     "Rakefile",
+     "VERSION",
+     "lib/.DS_Store",
+     "lib/tweaks.rb",
+     "pkg/tweaks-0.0.1.gem",
+     "rails/init.rb",
+     "test/test_helper.rb",
+     "tweaks.gemspec",
+     "tweaks.vpj",
+     "tweaks.vpw",
+     "tweaks.vpwhistu",
+     "tweaks.vtg"
   ]
   s.homepage = %q{http://github.com/buzzware/tweaks}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{A minimal framework for implementing, configuring and distributing those little pieces of code}
+  s.test_files = [
+    "test/test_helper.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
