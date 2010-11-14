@@ -1,3 +1,5 @@
+require File.join(File.dirname(__FILE__),'tweak_config')
+
 class Tweaks
 
 	@@configs = {}
@@ -66,7 +68,8 @@ class Tweaks
 	# aNormally :enabled or :disabled
 	def self.define_tweak(aName,aNormally,aDefaults=nil)
 		config = @@configs[aName.to_sym]
-		@@configs[aName.to_sym] = config = ConfigClass.new(aDefaults,config) if aDefaults
+		require 'ruby-debug'; debugger
+		@@configs[aName.to_sym] = config = TweakConfig.new(aDefaults,config) if aDefaults
 		@@switch_default[aName.to_sym] = (aNormally==:enabled || aNormally==true ? true : false)
 		en = enabled?(aName)
 		yield(config,aName) if en
