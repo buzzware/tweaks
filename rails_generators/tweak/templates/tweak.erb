@@ -1,13 +1,13 @@
 Tweaks.define_tweak(
   :<%= args.first %>,	# name of tweak
-  :disabled, # determines whether tweak is normally :enabled or :disabled
+  :install_later, 		# :install_later lets config and code be seperate, and allows the tweak to not be installed. :install_now will just use values given below, and the tweak is always installed
   {
     # default config values here
   }
 ) do |config,name|
 
-  # The tweak does its thing here
-  # Of course, you can declare a class or whatever above to just call here with the config
+  # The tweak does its thing here, using the config given above
+  # Of course, you can declare a class or whatever above define_tweak to call here
 
 end
 

@@ -79,5 +79,7 @@
 			Recurse="1"
 			Refilter="0"
 			Excludes=".git"/>
+		<F N="Rakefile"/>
+		<F N="README.rdoc"/>
 	</Files>
 </Project>

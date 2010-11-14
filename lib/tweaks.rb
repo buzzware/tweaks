@@ -3,8 +3,6 @@ require File.join(File.dirname(__FILE__),'tweak_config')
 class Tweaks
 
 	@@configs = {}
-	@@switch = {}
-	@@switch_default = {}
 	@@procs = {}
 	@@installed = []
 
@@ -26,34 +24,10 @@ class Tweaks
 		end
 	end
 	
-	#def self.enable(*aTweakNames)
-	#	aTweakNames = [aTweakNames] unless aTweakNames.is_a?(Array)
-	#	aTweakNames.each do |n|
-	#		@@switch[n.to_sym] = true
-	#	end
-	#end
-  #
-	#def self.disable(*aTweakNames)
-	#	aTweakNames = [aTweakNames] unless aTweakNames.is_a?(Array)
-	#	aTweakNames.each do |n|
-	#		@@switch[n.to_sym] = false
-	#	end
-	#end
-  #
-	#def self.header_enabled?(aTweak)
-	#end
-  #
-	#def self.header_disabled?(aTweak)
-	#end
-
 	# pass a hash to set
 	# returns config hash for modification
 	def self.configure_tweak(aTweak,aConfig=nil)
 		aTweak = aTweak.to_sym
-		#if !(cf = @@configs[aTweak])
-		#	cf = TweakConfig.new({})
-		#	@@configs[aTweak] = cf
-		#end
 		cf = @@configs[aTweak]
 		cf.read(aConfig) if aConfig
 		@@configs[aTweak] = cf
@@ -86,10 +60,6 @@ class Tweaks
 		else
 			p.call(config,aName)
 		end
-	end
-
-	def self.enabled?(aTweakName)
-		@@switch[aTweakName.to_sym]==nil ? @@switch_default[aTweakName.to_sym] : @@switch[aTweakName.to_sym]
 	end
 
 end

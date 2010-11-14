@@ -1,6 +1,6 @@
 = tweaks
 
-* Author : http://www.buzzware.com.au
+* Author : Gary McGhee http://www.buzzware.com.au
 
 == DESCRIPTION:
 
