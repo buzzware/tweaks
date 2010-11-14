@@ -1,26 +1,29 @@
+# This is a cutdown version of ConfigClass from the buzzcore gem, and still is a bit messy.
+# The idea is that the config can be declared with default values (enabling a reset to defaults),
+# and that fields are implicitly declared with a type and value. New values for existing fields
+# will then be converted to the original type. This is particularly useful eg if the values all 
+# come in as strings, but need to operate as other types
+#
+# use like this :
+#
+# config = TweakConfig.new(
+#		:something => String,									# giving a class means the type is the given class, and the default value is nil
+#		:session_key => '_session',
+#		:upload_path=> 'cms/uploads',
+#		:thumbs_cache => File.expand_path('public/thumbs_cache',RAILS_ROOT),	# make sure this exists with correct permissions
+#		:thumbs_url => '/thumbs_cache'
+#		:delay => 3.5,
+#		:log_level => :warn
+#	)
+
 class TweakConfig < Hash
 
 	attr_reader :default_values
 
-	def initialize(aDefaultValues,aNewValues=nil,&aBlock)
+	def initialize(aDefaultValues,aGivenValues=nil)
 		@default_values = aDefaultValues.clone
 		reset()
-		if aNewValues
-			block_given? ? read(aNewValues,&aBlock) : read(aNewValues) 
-		end
-	end
-
-	# aBlock allows values to be filtered based on key,default and new values
-	def read(aSource,&aBlock)
-		default_values.each do |k,v|
-			done = false
-			if block_given? && ((newv = yield(k,v,aSource && aSource[k])) != nil)
-				self[k] = newv
-				done = true
-			end
-			copy_item(aSource,k) if !done && aSource && !aSource[k].nil?
-		end
-		self
+		read(aGivenValues) if aGivenValues
 	end
 	
 	# reset values back to defaults
@@ -91,30 +94,11 @@ class TweakConfig < Hash
 		end
 	end
 
-	def copy_strings(aHash,*aKeys)
-		aKeys.each do |k|
-			self[k] = aHash[k].to_s unless aHash[k].nil?
+	def read(aSource,aLimitToDefaults=false)
+		aSource.each do |k,v|
+			copy_item(aSource,k) unless aLimitToDefaults && !default_values.include?[k]
 		end
-	end
-
-	def copy_ints(*aDb)
-		aHash = aDb.shift
-		aKeys = aDb
-		aKeys.each do |k|
-			set_int(k,aHash[k])
-		end
-	end
-
-	def copy_floats(aHash,*aKeys)
-		aKeys.each do |k|
-			set_float(k,aHash[k])
-		end
-	end
-
-	def copy_booleans(aHash,*aKeys)
-		aKeys.each do |k|
-			set_boolean(k,aHash[k])
-		end
+		self
 	end
 
 	def to_hash
