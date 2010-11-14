@@ -41,12 +41,11 @@ class Tweaks
 	# called by tweak code (not sure if necessary)
 	# aDefaults creates an optional config object for this tweak with the given defaults and previously given values
 	# aNormally :enabled or :disabled
-	def self.define_tweak(aName,aWhen,aDefaults=nil,&block)
+	def self.define(aName,aDefaults=nil,&block)
 		aName = aName.to_sym
 		aDefaults = TweakConfig.new(aDefaults)
 		app_config = @@configs[aName.to_sym]
-		install_now = [:enabled,true,:install_now,:now].include?(aWhen)
-		if install_now || app_config
+		if app_config
 			@@configs[aName] = (app_config ? aDefaults.read(app_config) : aDefaults)
 			do_it(aName,&block)
 		else
@@ -65,9 +64,9 @@ class Tweaks
 
 	# pass a hash to set
 	# returns config hash for modification
-	def self.configure_tweak(aName,aConfig=nil)
+	def self.configure(aName,aConfig=nil)
 		aName = aName.to_sym
-		if have_defaults = have_config?(aName)							# will be defaults from define_tweak, so merge in app config
+		if have_defaults = have_config?(aName)							# will be defaults from define, so merge in app config
 			config = @@configs[aName]
 			config.read(aConfig) if aConfig
 			@@configs[aName] = config
@@ -77,6 +76,12 @@ class Tweaks
 		do_it(aName) if have_defaults && !installed?(aName)
 		@@configs[aName]
 	end
+	
+	def self.define_and_install(aName,aConfig=nil,&block)
+		define(aName,aConfig,&block)
+		configure(aName)
+	end
+	
 	
 end
 	

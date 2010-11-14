@@ -13,9 +13,8 @@ describe "tweaks" do
 		received_config = nil
 		input_config = {:food => [:bacon, :bacon_salad, :pizza]}
 
-		Tweaks.define_tweak(
+		Tweaks.define_and_install(
 			:lunch,
-			:install_now,
 			input_config
 		)	do |config,name|
 			received_config = config
@@ -26,15 +25,14 @@ describe "tweaks" do
 	it "should not get executed immediately when given :install_later, but is executed on config" do
 		received_config = nil
 		input_config = {:food => [:bacon, :bacon_salad, :pizza]}
-		Tweaks.define_tweak(
+		Tweaks.define(
 			:lunch,
-			:install_later,
 			input_config
 		)	do |config,name|
 			received_config = config
 		end
 		received_config.should == nil
-		Tweaks.configure_tweak(:lunch)
+		Tweaks.configure(:lunch)
 		received_config.should == input_config
 	end
 	
@@ -47,15 +45,14 @@ describe "tweaks" do
 			:number_string => String,
 			:a_symbol => Symbol
 		}
-		Tweaks.define_tweak(
+		Tweaks.define(
 			:person,
-			:install_later,
 			input_config
 		)	do |config,name|
 			received_config = config
 		end
 		received_config.should == nil
-		Tweaks.configure_tweak(:person,{:number_string => 5, :name => 'Roger', :a_symbol => 'apple'})
+		Tweaks.configure(:person,{:number_string => 5, :name => 'Roger', :a_symbol => 'apple'})
 		received_config.should == {
 			:name => 'Roger',
 			:number_string => '5',
@@ -73,11 +70,10 @@ describe "tweaks" do
 			:number_string => String,
 			:a_symbol => Symbol
 		}
-		Tweaks.configure_tweak(:person,{:number_string => 5, :name => 'Roger', :a_symbol => 'apple'})
+		Tweaks.configure(:person,{:number_string => 5, :name => 'Roger', :a_symbol => 'apple'})
 		received_config.should == nil
-		Tweaks.define_tweak(
+		Tweaks.define(
 			:person,
-			:install_later,
 			input_config
 		)	do |config,name|
 			received_config = config
