@@ -20,8 +20,8 @@ class TweakConfig < Hash
 
 	attr_reader :default_values
 
-	def initialize(aDefaultValues,aGivenValues=nil)
-		@default_values = aDefaultValues.clone
+	def initialize(aDefaultValues=nil,aGivenValues=nil)
+		@default_values = (aDefaultValues ? aDefaultValues.clone : {})
 		reset()
 		read(aGivenValues) if aGivenValues
 	end
@@ -90,7 +90,7 @@ class TweakConfig < Hash
 			when :Symbol then self[aKey] = (aHash[aKey].to_sym rescue nil)
 			when :Proc then self[aKey] = aHash[aKey] if aHash[aKey].is_a?(Proc)
 			else
-				raise StandardError.new('unsupported type')
+				self[aKey] = aHash[aKey]
 		end
 	end
 

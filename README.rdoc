@@ -4,9 +4,9 @@
 
 == DESCRIPTION:
 
-Tweaks are like tiny gems. In a single file you declare its name, whether 
-it is normally enabled or disabled, and implement it. Then you provide the configuration
-for all enabled tweaks in a file eg. in the Rails initializers folder.
+Tweaks are like tiny gems. In a single file you declare its name and default configuration, 
+and implement it. Project specific configuration can be provided seperately in your app, and 
+a defined tweak doesn't have to be installed at all.
 
 What Tweaks does for you
 
