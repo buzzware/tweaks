@@ -13,7 +13,7 @@ class TweakGenerator < Rails::Generator::Base
 			STDOUT.puts "\n  Creating/appending #{m.target.args.first} config to #{tweaks_config_filepath}\n\n"
 			tweaks_config_s += <<CONFIG_TEMPLATE
 
-Tweaks.configure_tweak(
+Tweaks.configure(
   :#{m.target.args.first},
   {
     # config values here

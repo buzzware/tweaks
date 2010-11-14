@@ -9,7 +9,7 @@ describe "tweaks" do
 		Tweaks.reset()
 	end
 
-	it "should get execute immediately with correct config when given :install_now" do
+	it "should get execute immediately with define_and_install and correct config" do
 		received_config = nil
 		input_config = {:food => [:bacon, :bacon_salad, :pizza]}
 
@@ -22,7 +22,7 @@ describe "tweaks" do
 		received_config.should == input_config
 	end
 
-	it "should not get executed immediately when given :install_later, but is executed on config" do
+	it "should not get executed immediately on define, but is executed on config" do
 		received_config = nil
 		input_config = {:food => [:bacon, :bacon_salad, :pizza]}
 		Tweaks.define(
@@ -37,7 +37,7 @@ describe "tweaks" do
 	end
 	
 
-	it "should not get executed immediately when given :install_later, but is executed on config and has merged config" do
+	it "should not get executed immediately, but is executed on config and has merged config" do
 		received_config = nil
 		input_config = {
 			:name => String,
@@ -62,7 +62,7 @@ describe "tweaks" do
 		received_config.class.should == TweakConfig
 	end
 
-	it "when configured before defined with install_later, should be executed on defineand has merged config" do
+	it "when configured before defined, should be executed on define and has merged config" do
 		received_config = nil
 		input_config = {
 			:name => String,
