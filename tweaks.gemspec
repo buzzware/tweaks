@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tweaks}
-  s.version = "0.0.2"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["buzzware"]
-  s.date = %q{2010-11-13}
+  s.date = %q{2010-11-15}
   s.description = %q{Tweaks provides a minimal framework for implementing, configuring and distributing those 
 little pieces of code you develop and collect through developing multiple rails projects.}
   s.email = %q{contact@buzzware.com.au}
@@ -18,21 +18,23 @@ little pieces of code you develop and collect through developing multiple rails 
      "README.rdoc"
   ]
   s.files = [
-    ".DS_Store",
+    ".gitignore",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "lib/.DS_Store",
+     "lib/tweak_config.rb",
      "lib/tweaks.rb",
      "pkg/tweaks-0.0.1.gem",
      "rails/init.rb",
+     "rails_generators/tweak/templates/tweak.erb",
+     "rails_generators/tweak/tweak_generator.rb",
+     "test/config_spec.rb",
+     "test/main_spec.rb",
      "test/test_helper.rb",
      "tweaks.gemspec",
      "tweaks.vpj",
-     "tweaks.vpw",
-     "tweaks.vpwhistu",
-     "tweaks.vtg"
+     "tweaks.vpw"
   ]
   s.homepage = %q{http://github.com/buzzware/tweaks}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -40,7 +42,9 @@ little pieces of code you develop and collect through developing multiple rails 
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{A minimal framework for implementing, configuring and distributing those little pieces of code}
   s.test_files = [
-    "test/test_helper.rb"
+    "test/config_spec.rb",
+     "test/main_spec.rb",
+     "test/test_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
