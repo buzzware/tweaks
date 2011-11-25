@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tweaks}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["buzzware"]
-  s.date = %q{2010-11-15}
+  s.date = %q{2011-11-25}
   s.description = %q{Tweaks provides a minimal framework for implementing, configuring and distributing those 
 little pieces of code you develop and collect through developing multiple rails projects.}
   s.email = %q{contact@buzzware.com.au}
@@ -39,7 +39,7 @@ little pieces of code you develop and collect through developing multiple rails 
   s.homepage = %q{http://github.com/buzzware/tweaks}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.5.3}
   s.summary = %q{A minimal framework for implementing, configuring and distributing those little pieces of code}
   s.test_files = [
     "test/config_spec.rb",
@@ -48,7 +48,6 @@ little pieces of code you develop and collect through developing multiple rails 
   ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
