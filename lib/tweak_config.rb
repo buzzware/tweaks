@@ -82,7 +82,6 @@ class TweakConfig < Hash
 		d_class = (d.is_a?(Class) ? d : d.class)
 		cname = d_class.name.to_sym
 		case cname
-			when :NilClass then ;
 			when :String then self[aKey] = aHash[aKey].to_s unless aHash[aKey].nil?
 			when :Float then set_float(aKey,aHash[aKey]);
 			when :Fixnum then set_int(aKey,aHash[aKey]);
@@ -96,7 +95,7 @@ class TweakConfig < Hash
 
 	def read(aSource,aLimitToDefaults=false)
 		aSource.each do |k,v|
-			copy_item(aSource,k) unless aLimitToDefaults && !default_values.include?[k]
+			copy_item(aSource,k) unless aLimitToDefaults && !default_values.include?(k)
 		end
 		self
 	end

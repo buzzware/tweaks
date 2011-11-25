@@ -31,6 +31,8 @@ the config to tweaks_config.rb
 
 * Multiple tweaks could be stored in your own gem, and then loaded by a rails/init.rb file like the one in this gem
 
+Developed at RailsCamp Perth 2010
+
 == FEATURES/PROBLEMS:
 
 * untested with Rails 3

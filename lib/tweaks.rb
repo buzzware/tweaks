@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__),'tweak_config')
 class Tweaks
 
 	def self.reset
-		@@configs = {}
+		@@configs = {}	# may contain defaults or config
 		@@procs = {}
 		@@installed = []
 	end
@@ -66,14 +66,14 @@ class Tweaks
 	# returns config hash for modification
 	def self.configure(aName,aConfig=nil)
 		aName = aName.to_sym
-		if have_defaults = have_config?(aName)							# will be defaults from define, so merge in app config
+		if have_config?(aName)							# will be defaults from define, so merge in app config
 			config = @@configs[aName]
 			config.read(aConfig) if aConfig
 			@@configs[aName] = config
 		else																# store app config for merge later
 			@@configs[aName] = TweakConfig.new(aConfig)
 		end
-		do_it(aName) if have_defaults && !installed?(aName)
+		do_it(aName) if @@procs[aName] && !installed?(aName)	# we have configured here, so install if we have define proc and not already installed
 		@@configs[aName]
 	end
 	
